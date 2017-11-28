@@ -23,6 +23,8 @@ private:
 
 public:
 	Entity(int level, int value);
+
+	void refreshEntityValues();
 };
 
 

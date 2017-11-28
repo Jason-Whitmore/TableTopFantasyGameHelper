@@ -4,25 +4,36 @@
 #include <random>
 
 
-Entity::Entity(int level, int value)
-{
+Entity::Entity(int lev, int value){
 
 	int r;
 	int pointsToDistribute = 3 + (level * 2);
-	level = level;
+	level = lev;
 
-	while (pointsToDistribute > 0) {
+	strength = 1 + rand() % lev / 10.0;
 
-		r = rand() % 5;
-		health = r + (level * 4);
+	agility = 1 + rand() % lev / 10.0;
 
-		pointsToDistribute -= r;
+	intellect = 1 + rand() % lev / 10.0;
 
-		r = rand() % 5;
-		strength = r + (level * 4);
-	}
+	luck = 1 + rand() % lev / 10.0;
 
+	refreshEntityValues();
+}
+void Entity::refreshEntityValues(){
+	//make sure values like actionPoints, health, healthRegen, mana, manaRegen
 
-};
+	actionPoints = agility * 4;
+
+	health = strength * 10;
+
+	healthRegen = strength * 2;
+
+	mana = intellect * 8;
+
+	manaRegen = intellect * 4;
+
+}
+;
 
 
