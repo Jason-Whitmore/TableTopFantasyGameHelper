@@ -32,7 +32,7 @@ void Entity::refreshEntityValues(){
 	mana = intellect * 8;
 
 	manaRegen = intellect * 4;
-
+	
 }
 ;
 
