@@ -1,4 +1,5 @@
-#include <string>
+#include <iostream>
+#include <string.h>
 
 #pragma once
 
@@ -8,7 +9,9 @@ class Item
 	private:
 		int value;
 		
-		char name[];
+		std::string name;
+
+		
 
 	public:
 		Item();
