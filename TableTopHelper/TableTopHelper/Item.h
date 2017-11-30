@@ -16,5 +16,6 @@ class Item
 	public:
 		Item();
 		
+		static std::string wearLevel[];
 };
 
