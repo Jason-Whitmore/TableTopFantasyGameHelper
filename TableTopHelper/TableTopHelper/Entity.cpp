@@ -2,38 +2,84 @@
 #include <iostream>
 #include <string>
 #include <random>
+#include <iostream>
+
+using namespace std;
+class Entity
+{
+
+private:
+	//basics
+	int level;
+	int health;
+
+	//character atributes
+	int strength;
+	int intellect;
+	int agility;
+	int luck;
+
+	//other stuff
+	int actionPoints;
+
+	int healthRegen;
+
+	int mana;
+	int manaRegen;
+
+	std::string name;
+	std::string possibleNamesStart[5] = {"Human ","Troll ","Elven ","Orcish ","Dwarven "};
+	std::string possibleNamesEnd[5] = {"Bandit","Marauder","Outlaw","Deserter","Brigand"};
+
+	//std::vector<Item>::value_type junk = vector();
+
+public:
+	Entity(int lev, int value){
+		int r;
+		int pointsToDistribute = 3 + (level * 2);
+		level = lev;
+
+		strength = 1 + rand() % lev / 10.0;
+
+		agility = 1 + rand() % lev / 10.0;
+
+		intellect = 1 + rand() % lev / 10.0;
+
+		luck = 1 + rand() % lev / 10.0;
+
+		name = possibleNamesStart[rand() % 5] + possibleNamesEnd[rand() % 5];
 
 
-Entity::Entity(int lev, int value){
 
-	int r;
-	int pointsToDistribute = 3 + (level * 2);
-	level = lev;
+		refreshEntityValues();
+	};
 
-	strength = 1 + rand() % lev / 10.0;
+	void refreshEntityValues(){
+		//make sure values like actionPoints, health, healthRegen, mana, manaRegen
 
-	agility = 1 + rand() % lev / 10.0;
+		actionPoints = agility * 4;
 
-	intellect = 1 + rand() % lev / 10.0;
+		health = strength * 10;
 
-	luck = 1 + rand() % lev / 10.0;
+		healthRegen = strength * 2;
 
-	refreshEntityValues();
-}
-void Entity::refreshEntityValues(){
-	//make sure values like actionPoints, health, healthRegen, mana, manaRegen
+		mana = intellect * 8;
 
-	actionPoints = agility * 4;
+		manaRegen = intellect * 4;
+	};
 
-	health = strength * 10;
 
-	healthRegen = strength * 2;
+	std::string toString(){
+		std::string r = "";
 
-	mana = intellect * 8;
+		return r;
 
-	manaRegen = intellect * 4;
-	
-}
-;
+	};
+
+
+};
+
+
+
 
 
