@@ -1,70 +1,68 @@
-#include "Item.h"
 #include <string>
 
 using namespace std;
 
 
-class Item
-{
-private:
-	int value;
+class Item {
+	private:
+		int value;
 
-	std::string name;
+		std::string name;
 
-	int weight;
-
+		int weight;
 
 
-public:
-	Item(int v, std::string n, int w){
-		value = v;
 
-		name = n;
+	public:
+		Item(int v, std::string n, int w){
+			value = v;
 
-		weight = w;
-	};
+			name = n;
 
-	Item() {
-		value = 0;
-		name = "";
-		weight = 0;
-	}
+			weight = w;
+		};
 
-	void setValue(int n) {
-		value = n;
-	}
+		Item() {
+			value = 0;
+			name = "";
+			weight = 0;
+		}
 
-	int getValue() {
-		return value;
-	}
+		void setValue(int n) {
+			value = n;
+		}
 
-	void setName(std::string n) {
-		name = n;
-	}
+		int getValue() {
+			return value;
+		}
 
-	std::string getName() {
-		return name;
-	}
+		void setName(std::string n) {
+			name = n;
+		}
 
-	void setWeight(int w) {
-		weight = w;
-	}
+		std::string getName() {
+			return name;
+		}
 
-	int getWeight() {
-		return weight;
-	}
+		void setWeight(int w) {
+			weight = w;
+		}
+
+		int getWeight() {
+			return weight;
+		}
 
 
-	std::string toString() {
-		std::string r = "";
+		std::string toString() {
+			std::string r = "";
 		
-		r += "Item name: " + name + "\n";
-		r += "Value: " + std::to_string(value) + "\n";
-		r += "Weight: " + std::to_string(weight) + "\n";
+			r += "Item name: " + name + "\n";
+			r += "Value: " + std::to_string(value) + "\n";
+			r += "Weight: " + std::to_string(weight) + "\n";
 
-		return r;
+			return r;
 
-	}
+		}
 
 	
 };

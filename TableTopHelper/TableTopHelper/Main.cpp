@@ -1,30 +1,36 @@
-#include "Main.h"
-#include "Entity.h"
-#include "Entity.cpp"
-#include <iostream>
 #include "Junk.cpp"
+#include "Weapon.cpp"
+#include "Main.h"
+#include <iostream>
+
+#include <time.h>
+#include "Item.cpp"
+
+
 
 using namespace std;
 
 
 
 
-
 int main() {
+
+	srand(time(NULL));
+
+
 	//Entity e = Entity(10, 10);
-	//Junk j = Junk(3);
+	//Junk j = Junk(10);
+	Weapon w = Weapon(40);
 	
 	cout << "Hello World! \n";
 	
 	std::string answer;
 
-	srand(time(NULL));
-	cout << rand() % 100 << "\n";
-	cout << rand() % 100 << "\n";
-	cout << rand() % 100 << "\n";
+	
 
-	//cout << j.toString();
+
+	//cout << w.toString();
 	cin >> answer;
-
+	exit(0);
 	return 0;
 }
