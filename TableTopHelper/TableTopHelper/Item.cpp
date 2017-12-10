@@ -1,20 +1,16 @@
+#include "Item.h"
 #include <string>
 
-using namespace std;
 
 
-class Item {
-	private:
 		int value;
 
 		std::string name;
 
 		int weight;
 
-
-
-	public:
-		Item(int v, std::string n, int w){
+	
+		Item::Item(int v, std::string n, int w){
 			value = v;
 
 			name = n;
@@ -22,38 +18,42 @@ class Item {
 			weight = w;
 		};
 
-		Item() {
+		Item::Item() {
 			value = 0;
-			name = "";
+			name = "f";
 			weight = 0;
 		}
 
-		void setValue(int n) {
-			value = n;
+		void Item::setValue(int val){
+			value = val;
 		}
 
-		int getValue() {
+		int Item::getValue(){
 			return value;
 		}
 
-		void setName(std::string n) {
+		void Item::setName(std::string n){
 			name = n;
 		}
 
-		std::string getName() {
+		std::string Item::getName(){
 			return name;
 		}
 
-		void setWeight(int w) {
+		void Item::setWeight(int w){
 			weight = w;
 		}
 
-		int getWeight() {
+		int Item::getWeight(){
 			return weight;
 		}
 
 
-		std::string toString() {
+
+
+
+
+		std::string Item::toString() {
 			std::string r = "";
 		
 			r += "Item name: " + name + "\n";
@@ -64,8 +64,6 @@ class Item {
 
 		}
 
-	
-};
 
 
 

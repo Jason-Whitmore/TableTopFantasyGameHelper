@@ -1,19 +1,17 @@
-#include "Item.cpp"
+#include "Junk.h"
 
 
 
 
-class Junk : public Item {
-	private:
 		
-		string junkPrefix[10] = {"Old ","Shining ","Rusty ","Broken ","Fragile ","Pristine ","Standard issue ","Tarnished ","Tattered ","Scratched "};
-		string material[5] = {"wooden ","metal ", "ceramic ", "thatch ", "golden "};
-		string junkPostfix[10] = {"spoon", "cup", "figure", "heirloom", "purse", "hammer", "toy", "timepiece", "brush", "box"};
+		
 
-	public:
-		Junk(int maxVal) : Item(){
-			//Sleep(1);
-			
+		Junk::Junk(int maxVal) : Item(){
+			std::string junkPrefix[10] = { "Old ","Shining ","Rusty ","Broken ","Fragile ","Pristine ","Standard issue ","Tarnished ","Tattered ","Scratched " };
+			std::string material[5] = { "wooden ","metal ", "ceramic ", "thatch ", "golden " };
+			std::string junkPostfix[10] = { "spoon", "cup", "figure", "heirloom", "purse", "hammer", "toy", "timepiece", "brush", "box" };
+
+
 			int randIndex1 = rand() % 10;
 			int randIndex2 = rand() % 5;
 			int randIndex3 = rand() % 10;
@@ -36,5 +34,3 @@ class Junk : public Item {
 			setName(name);
 		};
 	
-};
-
