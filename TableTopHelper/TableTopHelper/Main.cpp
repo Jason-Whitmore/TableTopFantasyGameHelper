@@ -23,7 +23,7 @@ int main() {
 
 	int inputInt;
 	while (true) {
-		cout << "Commands: junk, weapons, clothing, enemies \n";
+		cout << "Commands: junk, weapons, clothing, enemies, dice \n";
 		cin >> input;
 
 
@@ -53,6 +53,16 @@ int main() {
 			inputInt2 = stoi(input);
 			
 			Main::printOutEnemies(inputInt, inputInt2);
+
+		} else if(input == "dice"){
+			cout << "How many sides? \n";
+			cin >> input;
+			cout << "\n";
+
+			cout << "Dice rolls a ";
+			cout << 1 + rand() % (stoi(input));
+			cout << "\n";
+
 		} else {
 			cout << "Input unrecognized. Try again. \n";
 		}
