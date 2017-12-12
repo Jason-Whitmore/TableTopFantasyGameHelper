@@ -1,9 +1,12 @@
 #include "Helper.h"
-#include <random>
-#include <time.h>
-#include <thread>
-#include <chrono>
 
-namespace Helper {
+double Helper::randomDouble(double lower, double upper)
+{
+	double delta = upper - lower;
 
+	double r = lower;
+
+	double scalar = (double)rand() / RAND_MAX;
+
+	return r + (delta * scalar);
 }

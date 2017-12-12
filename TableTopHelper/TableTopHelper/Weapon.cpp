@@ -39,7 +39,7 @@
 
 		setValue(v);
 
-		attackDamage = (approxVal / 3) + (rand() % 10);
+		attackDamage = (approxVal / 5) + (rand() % 10);
 
 		APCost = approxVal / 8;
 

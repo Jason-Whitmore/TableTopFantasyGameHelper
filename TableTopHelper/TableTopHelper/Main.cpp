@@ -4,7 +4,7 @@
 #include "Main.h"
 #include <iostream>
 #include "Clothing.h"
-
+#include "Helper.h"
 #include <time.h>
 
 
@@ -15,8 +15,11 @@ using namespace std;
 
 
 int main() {
-
+	
 	srand(time(NULL));
+	cout << Helper::randomDouble(.9,1.1);
+	cout << "\n";
+
 
 	std::string input;
 	int inputInt2;
