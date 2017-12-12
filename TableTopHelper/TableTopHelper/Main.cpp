@@ -6,6 +6,7 @@
 #include "Clothing.h"
 #include "Helper.h"
 #include <time.h>
+#include <stdlib.h>
 
 
 
@@ -17,8 +18,6 @@ using namespace std;
 int main() {
 	
 	srand(time(NULL));
-	cout << Helper::randomDouble(.9,1.1);
-	cout << "\n";
 
 
 	std::string input;
@@ -28,7 +27,7 @@ int main() {
 	while (true) {
 		cout << "Commands: junk, weapons, clothing, enemies, dice \n";
 		cin >> input;
-
+		system("CLS");
 
 		if (input == "junk") {
 			cout << "Approx val of junk? \n";
