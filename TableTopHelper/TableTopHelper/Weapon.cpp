@@ -16,7 +16,7 @@
 		
 		
 
-	Weapon::Weapon(int approxVal) : Item(){
+	Weapon::Weapon(int level) : Item(){
 
 		std::string condition[5] = { "Sharp ", "Rusty ", "Broken ", "Pristine ", "Used " };
 		std::string origin[5] = { "Human ", "Orcish ", "Dwarven ","Elvish ", "Troll " };
@@ -33,21 +33,22 @@
 		
 		setName(s);
 
-		int v = approxVal - ((int)approxVal * .2);
+		double min = (level * 10) * .8;
 
-		v += rand() % (int)((approxVal * .2) * 2);
+		double max = (level * 10) * 1.2;
 
-		setValue(v);
+		double randomDouble(double min, double max);
 
-		attackDamage = (approxVal / 5) + (rand() % 10);
+		setValue(Helper::randomDouble(min, max));
 
-		APCost = approxVal / 8;
+		attackDamage = 5 * log(Helper::randomDouble(3, 4) * level);
+
+		APCost = 4 * log(Helper::randomDouble(2, 4) * level);
+
+		critMultiplier = Helper::randomDouble(1, 1 + (level / 15.0));
 
 
-		double dec = (rand() % (approxVal / 2)) / 100.0;
-		critMultiplier = 1 + dec;
-
-		setWeight(approxVal / 5);
+		setWeight(3 * log(Helper::randomDouble(2,3) * level));
 
 	}
 

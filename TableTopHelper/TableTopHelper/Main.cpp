@@ -4,7 +4,6 @@
 #include "Main.h"
 #include <iostream>
 #include "Clothing.h"
-#include "Helper.h"
 #include <time.h>
 #include <stdlib.h>
 
@@ -25,26 +24,35 @@ int main() {
 
 	int inputInt;
 	while (true) {
-		cout << "Commands: junk, weapons, clothing, enemies, dice \n";
+		cout << "Commands: junk, weapons, clothing, enemies, dice, attrib \n";
 		cin >> input;
 		system("CLS");
 
 		if (input == "junk") {
-			cout << "Approx val of junk? \n";
+			cout << "Level? \n";
 			cin >> input;
 			inputInt = stoi(input);
 			Main::printOutJunk(inputInt);
 		} else if (input == "weapons") {
-			cout << "Approx val of weapons? \n";
+			cout << "Level of weapons? \n";
+			cin >> input;
+			
+			inputInt = stoi(input);
+
+			cout << "Number of weapons? \n";
 			cin >> input;
 
-			inputInt = stoi(input);
-			Main::printOutWeapons(inputInt);
+
+			Main::printOutWeapons(inputInt, stoi(input));
 		} else if(input == "clothing"){
-			cout << "Approx val of clothing? \n";
+			cout << "Level of clothing? \n";
 			cin >> input;
 			inputInt = stoi(input);
-			Main::printOutClothing(inputInt);
+
+			cout << "Number of clothes? \n";
+			cin >> input;
+
+			Main::printOutClothing(inputInt, stoi(input));
 		} else if (input == "enemies") {
 			cout << "Level of enemies? \n";
 			cin >> input;
@@ -65,6 +73,37 @@ int main() {
 			cout << 1 + rand() % (stoi(input));
 			cout << "\n";
 
+		} else if (input == "attrib") {
+			Entity e = Entity(1,1);
+
+			cout << "Strength? \n";
+			cin >> input;
+			e.setStrength(stoi(input));
+
+			cout << "Agility? \n";
+			cin >> input;
+			e.setAgility(stoi(input));
+
+			cout << "Intellect? \n";
+			cin >> input;
+			e.setIntellect(stoi(input));
+
+			cout << "Luck? \n";
+			cin >> input;
+			e.setLuck(stoi(input));
+
+			system("CLS");
+
+			cout << "Health: " + std::to_string(e.getHealth()) + "\n";
+			cout << "Health Regen: " + std::to_string(e.getHealthRegen()) + "\n";
+			cout << "Mana: " + std::to_string(e.getMana()) + "\n";
+			cout << "Mana Regen: " + std::to_string(e.getManaRegen()) + "\n";
+			cout << "Carry Capacity: " + std::to_string(e.getCarryCapacity()) + "\n";
+			cout << "Action Points: " + std::to_string(e.getActionPoints()) + "\n";
+			cout << "\n";
+
+			
+
 		} else {
 			cout << "Input unrecognized. Try again. \n";
 		}
@@ -75,11 +114,11 @@ int main() {
 	return 0;
 }
 
-void Main::printOutJunk(int val){
+void Main::printOutJunk(int level){
 	vector<Junk> j;
 
 	Junk jun = Junk(10);
-	int valLeft = val;
+	int valLeft = level * 15;
 
 	while(valLeft > 0) {
 		jun = Junk(10);
@@ -98,19 +137,12 @@ void Main::printOutJunk(int val){
 
 }
 
-void Main::printOutWeapons(int val){
+void Main::printOutWeapons(int level, int amount){
 	vector<Weapon> w;
 	
-	int numOfWeapons = 1 + rand() % 2;
-	int valPerWeapon = val / numOfWeapons;
 
-	int valLeft = val;
-
-	while (valLeft > 0) {
-		w.push_back(Weapon(valPerWeapon));
-
-		valLeft -= valPerWeapon;
-
+	for (int i = 0; i < amount; i++) {
+		w.push_back(Weapon(level));
 	}
 
 	//print out weapons
@@ -122,19 +154,11 @@ void Main::printOutWeapons(int val){
 
 }
 
-void Main::printOutClothing(int val){
+void Main::printOutClothing(int level, int amount){
 	vector<Clothing> c;
 
-	int numOfClothing = 1 + rand() % 2;
-	int valPerClothing = val / numOfClothing;
-
-	int valLeft = val;
-
-	while (valLeft > 0) {
-		c.push_back(Clothing(valPerClothing));
-
-		valLeft -= valPerClothing;
-
+	for (int i = 0; i < amount; i++) {
+		c.push_back(Clothing(level));
 	}
 
 	//print out weapons
@@ -155,4 +179,8 @@ void Main::printOutEnemies(int level, int amount){
 	}
 
 	cout << "\n";
+}
+
+void Main::printOutAtrributes(int s, int a, int i, int l)
+{
 }

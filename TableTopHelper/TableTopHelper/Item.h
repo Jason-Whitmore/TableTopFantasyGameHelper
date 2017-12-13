@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <ctgmath>
+#include "Helper.h"
 
 #pragma once
 
